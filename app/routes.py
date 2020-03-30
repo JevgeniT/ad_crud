@@ -21,7 +21,7 @@ def get_product(id):
 
 @app.route('/product', methods=['POST'])
 def add_product():
-    name = request.json['name']
+    name = request.json['product']
     product_category = request.json['category']
 
     if product_exists_name(name):
@@ -37,7 +37,7 @@ def add_product():
 
 @app.route('/product/<id>', methods=['PUT'])
 def update_product(id):
-    name = request.json['name']
+    name = request.json['product']
 
     if not product_exists_id(id):
         return jsonify({'error': 'cannot update non-existent product'})
